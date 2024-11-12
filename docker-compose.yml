@@ -2,7 +2,7 @@
 version: "3.9"
 services:
   phanpy:
-    image: ghcr.io/mijndert/phanpy-docker:2024.10.15.e3df9ff
+    image: ghcr.io/mijndert/phanpy-docker:latest
     container_name: phanpy
     ports:
       - 8080:80
