@@ -33,12 +33,13 @@ jobs:
       - name: Get phanpy release name
         run: |
           export RELEASE_NAME=$(curl -s https://api.github.com/repos/cheeaun/phanpy/releases/latest | grep '"tag_name"' | cut -d '"' -f 4)
+          echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: | 
-            ${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
-            ${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_NAME }}
+            ${{ env.REGISTRY}}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY}}/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_NAME }}
 
