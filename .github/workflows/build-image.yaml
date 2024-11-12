@@ -40,5 +40,5 @@ jobs:
           push: true
           tags: | 
             ${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
-            ${{ github.actor }}/${{ env.IMAGE_NAME }}:{{ env.RELEASE_NAME }}
+            ${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_NAME }}
 
