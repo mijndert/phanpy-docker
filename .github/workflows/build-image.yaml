@@ -27,9 +27,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Get latest phanpy release
-        run: |
-          curl -L -o release.tar.gz $(curl -s https://api.github.com/repos/cheeaun/phanpy/releases/latest | grep "browser_download_url" | grep ".tar.gz" | cut -d '"' -f 4)
       - name: Get phanpy release name
         run: |
           export RELEASE_NAME=$(curl -s https://api.github.com/repos/cheeaun/phanpy/releases/latest | grep '"tag_name"' | cut -d '"' -f 4)
