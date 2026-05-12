@@ -32,7 +32,7 @@ jobs:
           export RELEASE_NAME=$(curl -s https://api.github.com/repos/cheeaun/phanpy/releases/latest | grep '"tag_name"' | cut -d '"' -f 4)
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: .
           push: true
